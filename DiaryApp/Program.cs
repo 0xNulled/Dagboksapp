@@ -4,6 +4,8 @@
     {
         static void Main()
         {
+            const string DiaryFilePath = "text.txt";
+
             while (true)
             {
                 Console.WriteLine("--Menu--");
@@ -13,9 +15,19 @@
 
                 switch (choice.Trim())
                 {
-                    case "1":
+                    case "1": //Skriv ny anteckning
                         {
-
+                            Console.WriteLine();
+                            NewEntry();
+                            break;
+                        }
+                    case "2":
+                        {
+                            ListEntry();
+                            break;
+                        }
+                    case "3":
+                        {
                             break;
                         }
                     default:
