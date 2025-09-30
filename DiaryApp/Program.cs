@@ -2,12 +2,13 @@
 {
     internal class Program
     {
-        static void Main()
+        static int Main()
         {
             const string DiaryFilePath = "text.txt";
             Entries entries = new Entries();
+            bool running = true;
 
-            while (true)
+            while (running)
             {
                 Console.WriteLine("--Menu--");
                 Console.WriteLine(" 1: Skriv ny anteckning \n 2: lista anteckningar \n 3: Sök anteckning");
@@ -31,6 +32,11 @@
                             entries.SearchEntries();
                             break;
                         }
+                    case "6":
+                        {
+                            running = false;
+                            break;
+                        }
                     default:
                         {
                             Console.WriteLine("Invalid input, försök igen");
@@ -38,6 +44,7 @@
                         }
                 }
             }
+            return 0;
         }
     }
 }
