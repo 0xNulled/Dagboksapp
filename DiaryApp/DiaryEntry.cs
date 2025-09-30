@@ -7,6 +7,7 @@ namespace Dagboksapp
         public DiaryEntry(string Text)
         {
             this.Text = Text;
+            Date = DateTime.Now;
         }
 
         public void PrintDiaryEntry()

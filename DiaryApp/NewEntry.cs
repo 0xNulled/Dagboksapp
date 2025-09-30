@@ -27,6 +27,22 @@ namespace Dagboksapp
                 entry.PrintDiaryEntry();
             }
         }
+        public void SearchEntries()
+        {
+            Console.WriteLine("Vad söker du efter?");
+            string search = Console.ReadLine();
+            if (search == null)
+            {
+                Console.WriteLine("Du måste söka efter något");
+                return;
+            }
+
+            var result = EntryList.FindAll(entry => entry.Text.Contains(search));
+            foreach (var entry in result)
+            {
+                entry.PrintDiaryEntry();
+            }
+        }
 
     }
 }
