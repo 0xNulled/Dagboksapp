@@ -8,5 +8,10 @@ namespace Dagboksapp
         {
             this.Text = Text;
         }
+
+        public void PrintDiaryEntry()
+        {
+            Console.WriteLine($" {Date}: \n {Text}");
+        }
     }
 }

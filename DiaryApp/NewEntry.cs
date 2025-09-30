@@ -2,7 +2,7 @@ namespace Dagboksapp
 {
     public class Entries
     {
-        private List<DiaryEntry> ListEntries;
+        private List<DiaryEntry> EntryList = new List<DiaryEntry>();
 
         public void NewEntry()
         {
@@ -14,8 +14,18 @@ namespace Dagboksapp
                 Console.WriteLine("Ditt inlägg kan inte vara tomt");
                 return;
             }
-            
-            ListEntries.Add(new DiaryEntry(Entry));
+
+            EntryList.Add(new DiaryEntry(Entry));
+            Console.WriteLine("Din anteckning har lagts till");
+        }
+
+        public void ListEntries()
+        {
+            Console.WriteLine("Dina anteckningar: ");
+            foreach (DiaryEntry entry in EntryList)
+            {
+                entry.PrintDiaryEntry();
+            }
         }
 
     }

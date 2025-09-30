@@ -5,6 +5,7 @@
         static void Main()
         {
             const string DiaryFilePath = "text.txt";
+            Entries entries = new Entries();
 
             while (true)
             {
@@ -17,13 +18,12 @@
                 {
                     case "1": //Skriv ny anteckning
                         {
-                            Console.WriteLine();
-                            NewEntry();
+                            entries.NewEntry();
                             break;
                         }
                     case "2":
                         {
-                            ListEntry();
+                            entries.ListEntries();
                             break;
                         }
                     case "3":
