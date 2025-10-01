@@ -49,10 +49,10 @@ namespace Dagboksapp
             }
         }
         private static void AddText(FileStream fs, string value)
-    {
-        byte[] info = new UTF8Encoding(true).GetBytes(value);
-        fs.Write(info, 0, info.Length);
-    }
+        {
+            byte[] info = new UTF8Encoding(true).GetBytes(value);
+            fs.Write(info, 0, info.Length);
+        }
 
         public void SaveToFile()
         {
@@ -66,7 +66,22 @@ namespace Dagboksapp
                     }
                 }
             }
+            else
+            {
+                using (StreamWriter sw = File.AppendText(DiaryFilePath))
+                {
+                    foreach (DiaryEntry entry in EntryList)
+                    {
+                        sw.WriteLine($"{entry.Date}: {entry.Text} \n");
+                    }
+                }
+            }
             Console.WriteLine("Anteckningar sparade på hårddisk \n");
+        }
+
+        public void ReadFromFile()
+        {
+            
         }
     }
 }
