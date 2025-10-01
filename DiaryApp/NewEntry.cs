@@ -1,8 +1,13 @@
+using System.IO;
+using System.Text;
+
 namespace Dagboksapp
 {
     public class Entries
     {
         private List<DiaryEntry> EntryList = new List<DiaryEntry>();
+        private const string DiaryFilePath = "text.txt";
+
 
         public void NewEntry()
         {
@@ -43,6 +48,25 @@ namespace Dagboksapp
                 entry.PrintDiaryEntry();
             }
         }
+        private static void AddText(FileStream fs, string value)
+    {
+        byte[] info = new UTF8Encoding(true).GetBytes(value);
+        fs.Write(info, 0, info.Length);
+    }
 
+        public void SaveToFile()
+        {
+            if (!File.Exists(DiaryFilePath))
+            {
+                using (FileStream fs = File.Create(DiaryFilePath))
+                {
+                    foreach (DiaryEntry entry in EntryList)
+                    {
+                        AddText(fs, $"{entry.Date}: {entry.Text} \n");
+                    }
+                }
+            }
+            Console.WriteLine("Anteckningar sparade på hårddisk \n");
+        }
     }
 }

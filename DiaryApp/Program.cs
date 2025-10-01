@@ -4,7 +4,6 @@
     {
         static int Main()
         {
-            const string DiaryFilePath = "text.txt";
             Entries entries = new Entries();
             bool running = true;
 
@@ -30,6 +29,11 @@
                     case "3":
                         {
                             entries.SearchEntries();
+                            break;
+                        }
+                    case "4":
+                        {
+                            entries.SaveToFile();
                             break;
                         }
                     case "6":
