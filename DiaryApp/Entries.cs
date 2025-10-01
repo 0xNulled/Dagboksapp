@@ -105,6 +105,7 @@ namespace Dagboksapp
                 var a = line.Split(seperator, StringSplitOptions.None);
                 EntryList.Add(new DiaryEntry(String.Join(seperator[0], a[1..a.Length]), a[0]));
             }
+            Console.WriteLine("Laddat sparade anteckningar till programmet \n");
         }
     }
 }
