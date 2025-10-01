@@ -1,5 +1,6 @@
 using System.IO;
 using System.Text;
+using System;
 
 namespace Dagboksapp
 {
@@ -81,7 +82,16 @@ namespace Dagboksapp
 
         public void ReadFromFile()
         {
-            
+            string[] seperator = { ": " };
+            foreach (string line in File.ReadLines(DiaryFilePath))
+            {
+                if (line == "")
+                {
+                    continue;
+                }
+                var a = line.Split(seperator, StringSplitOptions.None);
+                EntryList.Add(new DiaryEntry(String.Join(seperator[0], a[1..a.Length]), a[0]));
+            }
         }
     }
 }

@@ -36,6 +36,11 @@
                             entries.SaveToFile();
                             break;
                         }
+                    case "5":
+                        {
+                            entries.ReadFromFile();
+                            break;
+                        }
                     case "6":
                         {
                             running = false;

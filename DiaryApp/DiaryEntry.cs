@@ -4,15 +4,22 @@ namespace Dagboksapp
     {
         public DateTime Date { get; }
         public string Text { get; set; }
-        public DiaryEntry(string Text)
+        public DiaryEntry(string Text, string date = "")
         {
             this.Text = Text;
-            Date = DateTime.Now;
+            if (date == "")
+            {
+                Date = DateTime.Now;
+            }
+            else
+            {
+                Date = DateTime.Parse(date);
+            }
         }
 
         public void PrintDiaryEntry()
         {
-            Console.WriteLine($" {Date}: \n {Text}");
+            Console.WriteLine($" {Date}: {Text}");
         }
     }
 }
