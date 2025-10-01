@@ -35,15 +35,27 @@ namespace Dagboksapp
         }
         public void SearchEntries()
         {
-            Console.WriteLine("Vad söker du efter?");
+            DateTime DateSearch;
+            Console.WriteLine("När skrevs anteckningen? (åååå-mm-dd):");
             string search = Console.ReadLine();
+
+            try
+            {
+                DateSearch = Convert.ToDateTime(search);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Sökning misslyckades: {ex}");
+                return;
+            }
+
             if (search == null)
             {
                 Console.WriteLine("Du måste söka efter något");
                 return;
             }
 
-            var result = EntryList.FindAll(entry => entry.Text.Contains(search));
+            var result = EntryList.FindAll(entry => entry.Date.Date.Equals(DateSearch));
             foreach (var entry in result)
             {
                 entry.PrintDiaryEntry();
