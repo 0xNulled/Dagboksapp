@@ -1,13 +1,10 @@
 # Dagboksappen
 
-Programmet ska:
-- Ha meny/kontrollstruktur för funktioner (lägg till diaryEntry, lista diaryEntry, sök antekning efter datum, spara fil, läs från fil, avsluta)
-- Spara diaryEntry till valfritt format
-- Hantera fel med try/catch
-- använd git för veriasionshantering
+Du kan köra denna app genom att:
+- Klona detta repo
+- Kör kommandot (i mappen du klona repot i) 'dotnet run --project="DiaryApp/" ' 
 
-VG
-- Kan ta bort eller updatera en anteckning
-- extra felhantering (t.ex logga fel till en separat textfil error.log)
+Input görs genom menyn och funktionerna som appen har, och output finns för att visa användaren att appen har gjort aktionen dem förväntar.
 
-Tag/release 1.0 när uppgift är klart
+För menyn användes switch-cases eftersom logiken för den är mycket simpel och kräver inget från if-statements som switch-cases inte har. DateTime användes för DiaryEntry.Date då det gjorde klassen som enklast och behövs den konverteras för någon anledning kan det göras i den metoden/funktionen. 
+Felhanteringen i menyn var enkel då jag kunde definera dem förväntade inputen och sätta en default ifall ett oväntat input skulle åstakomma. Felhanteringen inom metoder sker genom if statements som kollar om möjliga inputs (som programmet annars inte skulle kunna hantera) har upstått och sedan ge den instruktioner för hur att bära sig åt. Felhanteringen när det kom till sökmetoden gjordes genom att köra koden inom try och sedan catcha erroret och printa det tillbaka till användaren innan en early return. 

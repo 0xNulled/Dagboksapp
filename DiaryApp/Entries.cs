@@ -22,7 +22,7 @@ namespace Dagboksapp
             }
 
             EntryList.Add(new DiaryEntry(Entry));
-            Console.WriteLine("Din anteckning har lagts till");
+            Console.WriteLine("Din anteckning har lagts till \n");
         }
 
         public void ListEntries()
@@ -32,6 +32,7 @@ namespace Dagboksapp
             {
                 entry.PrintDiaryEntry();
             }
+            Console.WriteLine();
         }
         public void SearchEntries()
         {
